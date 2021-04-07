@@ -8,6 +8,7 @@
 </head>
 <body>
 <h1>게시판 리스트</h1>
+<div>${list }</div>
 <a href="view.do">글보기</a>
 <a href="write.do">글쓰기</a>
 </body>
