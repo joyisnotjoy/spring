@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.board.mapper.BoardMapper">
+
+	<!-- 1. 게시판 리스트(강제 1page) -->
+	<select id="list" resultType="org.zerock.board.vo.BoardVO">
+ 		SELECT rnum, no,title, writer, writeDate, hit
+ 		FROM (
+	 		SELECT rowNum rnum, no, title, writer, writeDate, hit
+	 		FROM (
+				SELECT no, title, writer, writeDate, hit FROM board
+				ORDER BY no DESC
+			)
+ 		)
+ 		WHERE rnum between 1 AND 10
+	</select>
+	
+	<!-- 2. 게시판 글 보기 -->
+	<select id="view" resultType="org.zerock.board.vo.BoardVO">
+		SELECT no, title, content, writer, writeDate, hit
+		FROM board
+		WHERE no = #{no}
+	</select>
+
+	<!-- 2-1. 조회수 1증가 -->
+	<update id="increase" >
+		UPDATE board SET hit = hit + 1
+		WHERE no = #{no}
+	</update>
+	
+	<!-- 3. 게시판 글 쓰기 -->
+	<insert id="write">
+		INSERT INTO board(no, title, content, writer)
+		VALUES(board_seq.NEXTVAL, #{title}, #{content}, #{writer})	
+	</insert>
+	
+	<!-- 4. 게시판 글 수정 : update = resultType 사용하지 않는다. 하지만 문자열인 경우 사용해야 한다.-->
+	<update id="update">
+		UPDATE board 
+		SET title = #{title}, content = #{content}, writer = #{writer}
+		WHERE no = #{no}
+	</update>
+	
+	<!-- 5. 게시판 글 삭제 -->
+	<delete id="delete">
+		DELETE FROM board WHERE no = #{no}
+	</delete>
+	
+</mapper>
