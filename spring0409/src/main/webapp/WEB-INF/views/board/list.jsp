@@ -49,7 +49,7 @@ $(function() {
 	  bg.style.background = "linear-gradient(to right, #ffc3a0 "+ col1 +"%, #ffafbd "+ col2 +"%)";
 	  
 	}
-	
+	 
 });
 
 	
