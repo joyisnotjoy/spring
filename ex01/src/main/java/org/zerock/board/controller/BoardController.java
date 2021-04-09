@@ -12,7 +12,7 @@ import org.zerock.board.vo.BoardVO;
 
 //import lombok.Setter;
 import lombok.extern.log4j.Log4j;
- 
+  
 //�옄�룞 �깮�꽦�븯寃뚰븯�뒗 �뼱�끂�뀒�씠�뀡
 //@Controller, @Service, @Repository, @Component, @RestController, @Advice
 ///WEB-INF/spring/appServlet/servlet-context.xml �꽕�젙�씠 �릺�뼱 �엳�뼱�빞 �븳�떎. component-scan
