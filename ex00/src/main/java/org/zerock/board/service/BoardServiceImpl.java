@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-//import org.zerock.board.dao.BoardDAO;
 import org.zerock.board.mapper.BoardMapper;
 import org.zerock.board.vo.BoardVO;
 
@@ -36,27 +35,31 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public BoardVO view() throws Exception {
+	public BoardVO view(Long no) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		log.info("view() - 게시판 글보기 서비스 실행 *******");
+		
+		return mapper.view(no);
 	}
 
 	@Override
-	public int write() throws Exception {
+	public int write(BoardVO vo) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		log.info("write() - 게시판 글쓰기 서비스 실행 *******");
+		return mapper.write(vo);
 	}
 
 	@Override
-	public int update() throws Exception {
+	public int update(BoardVO vo) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		log.info("update() - 게시판 글수정 서비스 실행 *******");
+		return mapper.update(vo);
 	}
 
 	@Override
-	public int delete() throws Exception {
+	public int delete(Long no) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return mapper.delete(no);
 	}
 
 }

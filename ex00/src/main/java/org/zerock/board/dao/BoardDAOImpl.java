@@ -28,6 +28,7 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public BoardVO view() throws Exception {
 		// TODO Auto-generated method stub
+		log.info("view() - 게시판 글보기 가져오기 +++++++++++++++++++++++++++");
 		return null;
 	}
 
