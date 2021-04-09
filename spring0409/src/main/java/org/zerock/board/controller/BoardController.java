@@ -26,7 +26,7 @@ public class BoardController {
 	@Qualifier("bsi")
 	private BoardService service;
 	
-	
+	//model =  request.setattribute 역할을 한다. request객체안에 데이터를 저장한다.
 	//Mapping : get방식
 	@GetMapping("/list.do")
 	public String list(Model model) throws Exception {

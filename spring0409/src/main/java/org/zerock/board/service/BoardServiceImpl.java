@@ -13,7 +13,7 @@ import lombok.extern.log4j.Log4j;
 
 @Service
 @Log4j
-@Qualifier("bsi")
+@Qualifier("bsi")//Board Service Imple. 길잡이 역할.
 public class BoardServiceImpl implements BoardService{
 	
 	@Setter(onMethod_ = {@Autowired})
